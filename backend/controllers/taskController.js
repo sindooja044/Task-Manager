@@ -1,4 +1,4 @@
-const Task=require('.models/Task.js')
+const Task=require('../models/Task')
 
 const createTask= async (req, res)=>{
     try{
