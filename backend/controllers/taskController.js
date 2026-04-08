@@ -12,4 +12,14 @@ const createTask= async (req, res)=>{
         return res.status(500).json({message:err.message})
     }
 }
-module.exports={createTask}
+const getTasks= async (req, res)=>{
+    try{
+
+            const tasks=await Task.find().sort({createdAt:-1})
+            return res.status(200).json(tasks)
+        }catch(err){
+            return res.status(500).json({message:err.message})
+        }
+    }
+
+module.exports={createTask, getTasks}
