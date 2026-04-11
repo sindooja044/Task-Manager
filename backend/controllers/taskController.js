@@ -6,8 +6,8 @@ const createTask= async (req, res)=>{
         if(!title){
             return res.status(404).json({message:"404 title require"})
         }
-        const task=Task.create({title})
-        return res.status(201).json(title)
+        const task=await Task.create({title})
+        return res.status(201).json(task)
     }catch(err){
         return res.status(500).json({message:err.message})
     }

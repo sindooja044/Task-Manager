@@ -1,14 +1,16 @@
 import React from 'react'
 
 const Tasklist = ({tasks}) => {
-    if(tasks.length==0) return <p>no tasks found</p>
+   
   return (
     <div>
       <p>Tasks</p>
-      {tasks.map((t)=>(
-        <li key={t._id}>{t.title}</li>
+      <ul>
+      {tasks.map((t,index)=>(
+        <li key={t._id || index}>{t.title}</li>
 
       ))}
+      </ul>
     </div>
   )
 }

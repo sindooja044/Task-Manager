@@ -3,9 +3,10 @@ import React, { useState } from 'react'
 import Taskform from './components/Taskform'
 import Tasklist from './components/taskList'
 
-const [tasks,setTasks]=useState([]);
+
 
 const App = () => {
+  const [tasks,setTasks]=useState([]);
    
   const addTask=async (title) => {
     const res=await fetch("http://localhost:5000/api/tasks", {
@@ -16,6 +17,7 @@ const App = () => {
       body:JSON.stringify({title}),
     });
     const data=await res.json();
+    console.log(data)
     setTasks((prev)=>[data,...prev]);
   };
   return (
